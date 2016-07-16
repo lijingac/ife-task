@@ -1,0 +1,282 @@
+*{
+    margin:0;padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:'微软雅黑';
+}
+/*头部*//*************************************************/
+header{
+    position:relative;
+    height:60px;
+    width: 100%;
+    min-width: 760px;
+    background:white;
+    line-height: 60px;
+}
+#header-left{
+    position: absolute;
+    left: 60px;
+    background: url(../image/image07/logo.png) left  no-repeat;
+    padding-left: 40px;
+    font-size: 16px;
+}
+header ul{
+    position:absolute;right:120px;
+}
+header ul li {
+    text-align: center;
+    width:60px;
+    display:block;
+    float:left;
+    padding:0 10px;
+}
+header ul li a{
+
+    text-decoration:none;
+    color:#222;
+    font-size:14px;
+}
+header ul li:hover{
+    border-bottom: 2px solid red;
+    border-radius: 3px;
+}
+header ul li a:hover{
+    color: red;
+}
+#header-right{
+    position: absolute;
+    right: 60px;
+    background: url(../image/image07/user_icon.png) left no-repeat;
+    padding-left: 20px;
+}
+
+/*banner部分*//*************************************************/
+#banner{
+    width: 100%;
+    min-width: 760px;
+    height: 690px;
+    background: url(../image/image07/banner_img.jpg) no-repeat 0 center;
+    background-size: cover;
+    position: relative;
+}
+#banner-text{
+    position: absolute;
+    top: 228px;
+    left: 116px;
+}
+#banner .title{
+    font-size: 60px;
+    color: white;
+}
+#banner p{
+    font-size: 21px;
+    color: white;
+    margin-top: 32px;
+}
+#banner a{
+    display: block;
+    width: 330px;
+    height: 63px;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    line-height: 63px;
+    background-color: #e74f4d;
+    margin-top: 66px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+#banner a:hover{
+    background-color: white;
+    color:#E74F4D;
+}
+
+/*feature部分*//*************************************************/
+#feature{
+    width: 100%
+    min-width:760px;
+    height: 250px;
+    background-color: white;
+    padding-top: 44px;
+
+
+}
+#feature li{
+    float: left;
+    width: 25%;
+    height:100%;
+    font-size: 14px;
+    color:#787476;
+    word-wrap: break-word;
+    font-family: "黑体";
+    list-style: none;
+}
+#feature .first{
+    background: url(../image/image07/round_icon.png) top center no-repeat;
+}
+#feature .second{
+    background: url(../image/image07/flag_icon.png) top center no-repeat;
+}
+
+#feature .third{
+    background: url(../image/image07/flower_icon.png) top center no-repeat;
+}
+
+#feature .forth{
+    background: url(../image/image07/four_icon.png) top center no-repeat;
+}
+#feature li p{
+    margin-top: 89px;
+    padding: 0 70px;
+    text-align: center;
+    border-right: 1px solid #787476;
+}
+
+/*about部分*//*************************************************/
+
+#about{
+    height: 360px;
+    width:100%;
+    min-width: 760px;
+    background-color: #EDEDED;
+    text-align: center;
+    padding-top: 50px;
+}
+#big-logo{
+    height: 100px;
+    background: url(../image/image07/big_logo.png) center no-repeat;
+}
+#about .title{
+    font-size: 53.59px;
+    color:#8F8D8E;
+    font-family: "黑体";
+    margin-top: 40px;
+}
+
+/*select-city部分*//*************************************************/
+
+#select-city{
+    width: 100%
+    min-width:760px;
+    height: 341px;
+    background: url(../image/image07/search_bac.jpg) no-repeat;
+    background-size: cover;
+    padding-top: 40px;
+}
+#select-city .title{
+    font-size: 21px;
+    font-weight: normal;
+    font-family: "微软雅黑";
+    color: white;
+    text-align: center;
+}
+#select-city .info{
+    font-size: 12px;
+    color: white;
+    font-family: "微软雅黑";
+    text-align: center;
+}
+#select-city form{
+    text-align: center;
+}
+#select-city .select{
+    display: inline-block;
+    margin-top: 45px;
+    position: relative;
+}
+#select-city form select{
+    width:236px;
+    height:36px;
+    padding-left: 10px;
+    font-size: 12px;
+    color: #A9A6A6;
+    margin-right: 28px;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    appearance:none;
+}
+#select-city form select option{
+    background-color: #eee;
+}
+#select-city form select option:hover{
+    background-color: #be4f49;
+    color: white;
+}
+
+
+
+#select-city form .select:after{
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 38px;
+    top:50%;
+    margin-top: -10px;
+    background: url(../image/image07/btnb.png) no-repeat;
+    background-size: cover;
+}
+#select-city form select:hover{
+    border:1px solid #BE4F49;
+}
+#submit{
+    width:236px;
+    height:36px;
+    padding-left: 10px;
+    font-size: 16px; 
+    background-color: #be4f49;
+    color: white;
+    border: 0;
+    letter-spacing: 30px;
+}
+
+/*acti_info*//*************************************************/
+.acti_info{
+    width: 100%;
+    min-width: 760px;
+    background-color: #F7F7F7;
+    padding-top: 100px;
+    padding-left: 10%;
+    height: 605px;
+}
+.acti_info .part{
+  display: inline-block;
+  margin-left:36px;
+
+}
+.acti_info .part h4{
+  margin:13px;
+  text-align: center;
+  font-family: "微软雅黑";
+}
+.acti_info .part p{
+  text-align: center;
+  font-family: "微软雅黑";
+  font-size:12px;
+  color:#828281;
+}
+#arti_part2_h4{
+    margin-top: 0;
+    letter-spacing: 30px;
+}
+#arti_part2_p{
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+/*底部*//*************************************************/
+footer{
+    width:100%;
+    height:50px;
+    background:black;
+    color:white;
+    text-align:center;
+    line-height:50px;
+    font-size:14px;
+}

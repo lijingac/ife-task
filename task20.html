@@ -1,0 +1,71 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>task 20</title>
+        <script>
+            window.onload=function () {
+                var otextArea=document.getElementById('textArea');
+                var oNumber=document.getElementById('num-search');
+                var oSearch=document.getElementById('search');
+                var oInsert=document.getElementById('insert');
+                var oContainer=document.getElementById('container');
+                
+                
+                oInsert.onclick=function () {
+                    var oDiv=" ";
+                    var str=otextArea.value.trim();
+                    var strArr=str.split(/[^0-9a-zA-Z\u4e00-\u9fa5]+/);
+                    for (var i = 0; i < strArr.length; i++) {
+                        oDiv+="<div>"+strArr[i]+"</div>";
+                    };
+                    oContainer.innerHTML=oDiv;
+                }
+                oSearch.onclick=function () {
+                    var divContent=oContainer.getElementsByTagName('div');
+                    for (var i = 0; i < divContent.length; i++) {
+                        var oDivNub=divContent[i].innerHTML;
+                        var oTxt=oNumber.value;
+                        var oArr=oTxt.split(" ");
+                        for (var j = 0; j < oArr.length; j++) {
+                            if(oDivNub.search(oArr[j])!=-1)
+                                {
+                                    divContent[i].style.color='green';
+                                }
+                        };
+                    };
+                }
+
+
+
+            }
+
+        </script>
+            
+        <style>
+            #container div{
+                display: inline-block;
+                font-size: 30px;
+                text-align: center;
+                padding: 0 15px;
+                margin: 2px 0;
+                margin-right: 10px;
+                height: 50px;
+                line-height: 50px;                
+                background-color: red;
+                color: #FFFFFF;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <textarea rows="5" cols="20" placeholder="请输入字符并用不同的符号分割" id="textArea"></textarea>
+        <input id="num-search" type="text">
+        <input id="insert" type="button" value="插入">
+        <input id="search" type="button" value="查询">
+
+        <div id="container">
+          
+        </div>
+    </body>
+</html>        

@@ -1,0 +1,163 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>task 21</title>
+        <script>
+            var tagArr=[]; //存储tag的数组
+			var hobbyArr=[];//存储hobby的数组
+            //事件绑定函数，兼容浏览器差异
+            function addEvent(element, event, listener) {
+                try {
+                    element.addEventListener(event, listener, false);
+                }
+                catch(e){
+                    try{
+                        element.attachEvent("on" + event, listener);
+                    }
+                    catch(e) {
+                        element["on" + event] = listener;
+                    }
+                }
+                
+            }
+            //trim
+            function trim(str) {
+                var regex1 = /^\s*/;
+                var regex2 = /\s*$/;
+                return (str.replace(regex1, "")).replace(regex2, "");
+            }
+            function fnMouse(oDiv,arr){   //鼠标移入、移出、点击的函数
+                var oldText=oDiv.innerHTML;
+                oDiv.onmouseover=function(){
+                    this.innerHTML="点击删除"+oldText;
+                    this.style.background="red";
+                }
+                oDiv.onmouseout=function(){
+                    this.innerHTML=oldText;
+                    this.style.background="#ccc";
+                }
+                oDiv.onclick=function(){
+                    this.parentNode.removeChild(this);  //删除选择的DIV
+					for(var i=0;i<arr.length;i++){    //同时删除数组中的元素
+						if(oldText==arr[i]){
+							arr.splice(i,1);
+						}
+					}
+                }
+            }
+            function tagList(text,container){
+                var inputTag=trim(text.value);
+                var lastChar=inputTag.charAt(inputTag.length-1);
+                if (lastChar==','||lastChar=="，") {  //如果最后一个字符是逗号，把最后一个字符去掉
+                    inputTag=inputTag.substr(0,inputTag.length-1);
+                };
+                
+                if(inputTag==""){
+                    alert("请输入文字！");}
+                else{
+                    if(tagArr.indexOf(inputTag)===-1){
+                        tagArr.unshift(inputTag);
+                        var node=document.createElement("div");
+                        var textnode=document.createTextNode(tagArr[0]);
+                        node.appendChild(textnode);
+                        container.insertBefore(node,container.childNodes[0]);
+                    }
+                    text.value="";
+                }
+            }
+			function hobbyList(text,container){
+				container.innerHTML="";
+				var reg = /\s|,|，|、/g;
+				
+				var oArr=text.value.split(reg);
+				for(var num=0;num<oArr.length;num++){
+					if(hobbyArr.indexOf(oArr[num])===-1 && oArr[num]!=""){  //非空和非重复的值才添加到数组中
+						hobbyArr.push(trim(oArr[num]));
+					}
+				}
+				
+				if(hobbyArr.length>10){
+						hobbyArr.splice(0,hobbyArr.length - 10);
+					}
+					
+				for(var n=0;n<hobbyArr.length;n++){
+					var node=document.createElement("div");
+					var textnode=document.createTextNode(hobbyArr[n]);
+					node.appendChild(textnode);
+					container.appendChild(node);
+				}
+				text.value="";
+			}
+            window.onload=function(){
+                var tagInput=document.getElementById('tag-input');
+                var tagContainer=document.getElementById('tag-container');
+                var hobbyInput=document.getElementById('hobby-input');
+                var hobbySubmit=document.getElementById('hobby-submit');
+                var hobbyContainer=document.getElementById('hobby-container');
+                var tagDiv=tagContainer.getElementsByTagName('div');
+				var hobbyDiv=hobbyContainer.getElementsByTagName('div');
+                //hobbySubmit.onclick = function(){tagList(tagInput,tagContainer)};  //用onclick
+                //addEvent(hobbySubmit,'click',function(){tagList(tagInput,tagContainer);});//用事件绑定函数
+                addEvent(tagInput,"keyup",function(e){
+                    if (/[,，;；、\s\n]+/.test(tagInput.value) || e.keyCode ===13) {
+                        tagList(tagInput,tagContainer);
+                        if (tagArr.length>10) {
+                            tagArr.pop();
+                            tagContainer.removeChild(tagContainer.lastElementChild);
+                        };
+                    }
+                    for (var i = 0; i < tagDiv.length; i++) {
+						fnMouse(tagDiv[i],tagArr);
+                    };
+                });
+                addEvent(hobbySubmit,'click',function(){
+					hobbyList(hobbyInput,hobbyContainer);
+					
+					for(var j=0;j<hobbyDiv.length;j++){
+						fnMouse(hobbyDiv[j],hobbyArr);
+					}
+				
+				});
+            }
+
+        </script>
+            
+        <style>
+            #tag-container div,#hobby-container div{
+                display: inline-block;
+                font-size: 30px;
+                text-align: center;
+                padding: 0 15px;
+                margin: 2px 0;
+                margin-right: 10px;
+                height: 50px;
+                line-height: 50px;                
+                background-color: #ccc;
+                color: #FFFFFF;
+            }
+            /*#tag-container div:hover{
+                background: red;
+            }*/
+            #hobby-input{
+                height: 100px;
+                width: 250px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div>Tag:<input type="text" id="tag-input"></div>
+        <br>
+        <div id="tag-container">
+            
+        </div>
+        <textarea id="hobby-input">篮球,乒乓球,电影,音乐</textarea>
+        <br>
+        <input type="button" id="hobby-submit" value="确认兴趣爱好">
+        <br>
+        <div id="hobby-container">
+            
+        </div>
+    </body>
+</html>        
