@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_24</title>
+	<style>
+		div {
+			margin: 10px;
+			padding: 10px;
+			border: 1px solid #000;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		.root {
+			width: 1300px;
+			height: 600px;
+			margin: 10px auto;
+			flex-wrap: wrap;
+		}
+		.child_1 {
+			height: 260px;
+			min-width: 300px;
+		}
+		.child_2 {
+			height: 220px;
+		}
+		.child_3 {
+			height: 180px;
+		}
+		input {
+			margin-left: 20px;
+		}
+		
+	</style>
+</head>
+<body>
+	<button>遍历多叉树</button>
+	<button>删除选中的节点及其中的子节点</button>
+	<input type="text">
+	<button>在选中节点下增加子节点</button>
+	<input type="text">
+	<button>开始查询</button>
+	<div class="root">
+	Super
+		<div class="child_1">
+		Cat
+			<div class="child_2">
+			Apple
+				<div class="child_3">Pear</div>
+				<div class="child_3">Pig</div>
+				<div class="child_3">Comic</div>
+				<div class="child_3">Soccer</div>
+			</div>
+			<div class="child_2">Phone</div>
+			<div class="child_2">
+				<div class="child_3">Book</div>
+				<div class="child_3">School</div>
+			</div>
+		</div>
+		<div class="child_1">
+		Note
+			<div class="child_2">
+			Human
+				<div class="child_3">Code</div>
+				<div class="child_3">Operate</div>
+				<div class="child_3">Man</div>
+			</div>
+			<div class="child_2">
+			Program
+				<div class="child_3">
+				Boment
+					<div class="child_4">Cat</div>
+				</div>
+				<div class="child_3">Glass</div>
+			</div>
+		</div>
+		<div class="child_1">
+			Fish
+		</div>
+	</div>
+<script type="text/javascript" src="js/task24.js"></script>
+</body>
+</html>
