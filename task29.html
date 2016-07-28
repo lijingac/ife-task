@@ -1,0 +1,106 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IFE JavaScript Task 29</title>
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: '微软雅黑';
+                font-size: 1rem;
+            }
+            body{
+                width: 100%;
+            }
+            label{
+                height: 80px;
+                margin: 20% 20%;
+                display: block;
+            }
+            input:nth-child(1){
+                width: 300px;
+                height: 40px;
+                border-radius: 5px;
+                border: 1px solid #a8a8a8;
+                padding-left: 10px;
+                outline: none;
+                
+            }
+            input:nth-child(2){
+                background-color: #2F79BA;
+                border: 2px solid white;
+                color: white;
+                border-radius: 5px;
+                width: 100px;
+                height: 50px;
+                
+            }
+            #tip{
+                color: #a8a8a8;
+                padding-left: 2rem;
+            }
+        </style>
+        <script type="text/javascript">
+            // 对字符串头尾进行空格字符的去除、包括全角半角空格、Tab等，返回一个字符串
+            function trim(str) {
+                var regex1 = /^\s*/;
+                var regex2 = /\s*$/;
+                return (str.replace(regex1, "")).replace(regex2, "");
+            }
+            // 给一个element绑定一个针对event事件的响应，响应函数为listener
+            function addEvent(element, event, listener) {
+                if (element.addEventListener) {
+                    element.addEventListener(event, listener, false);
+                }
+                else if (element.attachEvent) {
+                    element.attachEvent("on" + event, listener);
+                }
+                else {
+                    element["on" + event] = listener;
+                }
+            }
+            //相关的正则表达式，用来验证中文字符和字符串长度
+            var chineseRegex = /[\u4E00-\uFA29]|[\uE7C7-\uE7F3]/g;
+            var lenRegex = /^.{4,16}$/;
+            
+            function validate(){
+                var oMsg=document.getElementById('msg');
+                var oTip=document.getElementById('tip');
+                var msg=trim(oMsg.value);
+                var msg=msg.replace(chineseRegex,"00");
+                if (msg.length==0) {
+                    oTip.innerHTML="姓名不能为空";
+                    oTip.style.color="red";
+                    oMsg.style.border="2px solid red";
+                }
+                else if(!lenRegex.test(msg)){
+                    oTip.innerHTML="字符数应为4~16位";
+                    oTip.style.color="red";
+                    oMsg.style.border="2px solid red";
+                }
+                else{
+                    oTip.innerHTML="格式正确";
+                    oTip.style.color="lightgreen";
+                    oMsg.style.border="2px solid lightgreen";
+                }
+            }
+            window.onload=function() {
+
+                addEvent(document.getElementById('btn'),"click",validate);
+            }
+        </script>
+    </head>
+    
+    <body>
+        <label>
+            名称
+            <input id="msg" type="text" autofocus="autofocus" />
+            <input id="btn" type="button" value="验证"  />
+            <p id="tip">必填，长度为4-16个字符</p>
+        </label>
+
+        
+    </body>
+</html>        
+
