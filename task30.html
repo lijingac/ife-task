@@ -1,0 +1,95 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IFE JavaScript Task 30</title>
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: '微软雅黑';
+                font-size: 1rem;
+            }
+            body{
+                width: 100%;
+                margin-top: 50px;
+                margin-left: 100px;
+            }
+            label{
+                margin-bottom: 15px;
+                display: block;
+            }
+            label input{
+                width: 300px;
+                height: 40px;
+                border-radius: 5px;
+                border: 1px solid #a8a8a8;
+                padding-left: 10px;
+                outline: none;
+                
+            }
+            label span{
+                width: 80px;
+                display: inline-block;
+            }
+            label p{
+                padding-left: 82px;
+                display:none;
+                color: #a8a8a8;
+
+            }
+            #submit{
+                background-color: #2F79BA;
+                border: 2px solid white;
+                color: white;
+                border-radius: 5px;
+                width: 80px;
+                height: 40px;
+                margin-left: 300px;
+                
+            }
+            .inputFocus{
+                border: 2px solid #1569C7;
+            }
+            .correct{
+                border: 2px solid lightgreen;
+            }
+            .wrong{
+                border: 2px solid red;
+            }
+        </style>
+    </head>
+    
+    <body>
+    <div id="container">
+        <label>
+            <span>名称</span>
+            <input type="text" name="username" />
+            <p class="tip" id="p1">必填，长度为4-16个字符</p>
+        </label>
+        <label>
+            <span>密码</span>
+            <input type="password" name="password" />
+            <p class="tip">请输入密码，长度为8~20个英文字符</p>
+        </label>
+        <label>
+            <span>密码确认</span>
+            <input type="password" name="repassword" />
+            <p class="tip">再次输入相同密码</p>
+        </label>
+        <label>
+            <span>邮箱</span>
+            <input type="text" name="email" />
+            <p class="tip">请输入正确邮箱地址</p>
+        </label>
+        <label>
+            <span>手机</span>
+            <input type="text" name="phone" />
+            <p class="tip">请输入正确的手机号码</p>
+        </label>
+        <button id="submit" name="submit">提交</button>
+</div>   
+        <script type="text/javascript" src="js/task30.js"></script>
+    </body>
+</html>        
+
