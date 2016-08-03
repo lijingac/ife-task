@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 30</title>
+    <style type="text/css">
+        form{
+            margin-top: 100px;
+        }
+        fieldset{
+            text-align: center;
+            border: none;
+        }
+        #company{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" action="javascript:;">
+        <fieldset id="student">
+            <label for="undergraduate"><input id="undergraduate" type="radio" name="people" value="在校生" checked="checked" />在校生</label>
+            <label for="graduate"><input id="graduate" type="radio" name="people" value="非在校生" />非在校生</label>
+        </fieldset>
+        <fieldset id="college">
+            <label for="city">你的城市：
+                <select id="city" name="city">
+                    <option selected value="北京" label="北京">北京</option>
+                    <option value="上海" label="上海">上海</option>
+                    <option value="广州" label="广州">广州</option>
+                    <option value="深圳" label="深圳">深圳</option>
+                </select>
+            </label>
+            <label for="school">
+                <select id="school" name="school"></select>
+            </label>
+        </fieldset>
+        <fieldset id="company">
+            <label for="corporation">你就职的公司：<input id="corporation" type="text" name="corporation" placeholder="请填写公司名称"></label>
+        </fieldset>
+    </form>
+    <script type="text/javascript" src="js/task31.js"></script>
+</body>
+</html>        
+
